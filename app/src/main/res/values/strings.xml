@@ -2,4 +2,8 @@
 
     <string name="app_name">Hot Lint</string>
 
+    <!-- FirstScreen -->
+    <string name="first_screen_title">Hello World!</string>
+    <!-- FirstScreen -->
+
 </resources>
