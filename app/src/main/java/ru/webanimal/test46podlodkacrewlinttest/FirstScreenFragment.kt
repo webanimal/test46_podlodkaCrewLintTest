@@ -1,7 +1,11 @@
 package ru.webanimal.test46podlodkacrewlinttest
 
 import android.content.Context
+import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
@@ -9,19 +13,39 @@ import javax.inject.Inject
 
 class FirstScreenFragment: MvpAppCompatFragment(), FirstScreenView {
 
+    var firstScreenComponent: FirstScreenComponent? = null
+        get() {
+            if (field == null) {
+                field = DaggerFirstScreenComponent.create()
+            }
+            return field
+        }
+
     @Inject
     @InjectPresenter
     @get:ProvidePresenter
     lateinit var presenter: FirstScreenPresenter
 
     override fun onAttach(context: Context) {
-        DaggerFirstScreenComponent.create().injectFirstScreen(this)
+        Log.d(this::class.java.simpleName, "TEST::onAttach")
+        firstScreenComponent?.inject(this)
         super.onAttach(context)
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        Log.d(this::class.java.simpleName, "TEST::onCreateView")
+        return LayoutInflater.from(context).inflate(R.layout.fragment_first_screen, container, false)
+    }
+
     override fun onDetach() {
+        Log.d(this::class.java.simpleName, "TEST::onDetach")
         super.onDetach()
-        // TODO Sergio D. 09.10.20: Add clear component
+        firstScreenComponent = null
     }
 
     override fun bindData(data: String) {

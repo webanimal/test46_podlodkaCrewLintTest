@@ -6,7 +6,5 @@ import javax.inject.Singleton
 @Component(modules = [FirstScreenModule::class])
 @Singleton
 interface FirstScreenComponent {
-
-    fun getFirstScreenPresenter(): FirstScreenPresenter
-    fun injectFirstScreen(view: FirstScreenView)
+    fun inject(fragment: FirstScreenFragment)
 }

@@ -7,7 +7,7 @@ import dagger.Provides
 class FirstScreenModule {
 
     @Provides
-    fun firstScreenPresenter(): FirstScreenPresenter {
+    fun provideFirstScreenPresenter(): FirstScreenPresenter {
         return FirstScreenPresenter()
     }
 }
