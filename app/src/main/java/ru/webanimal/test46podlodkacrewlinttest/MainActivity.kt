@@ -3,6 +3,7 @@ package ru.webanimal.test46podlodkacrewlinttest
 import android.os.Bundle
 import android.util.Log
 import moxy.MvpAppCompatActivity
+import ru.webanimal.test46podlodkacrewlinttest.screens.first.FirstScreenFragment
 
 class MainActivity: MvpAppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package ru.webanimal.test46podlodkacrewlinttest
+package ru.webanimal.test46podlodkacrewlinttest.screens.first
 
 import android.util.Log
 import moxy.InjectViewState

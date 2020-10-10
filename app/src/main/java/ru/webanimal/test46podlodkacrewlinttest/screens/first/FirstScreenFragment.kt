@@ -1,4 +1,4 @@
-package ru.webanimal.test46podlodkacrewlinttest
+package ru.webanimal.test46podlodkacrewlinttest.screens.first
 
 import android.content.Context
 import android.os.Bundle
@@ -9,11 +9,14 @@ import android.view.ViewGroup
 import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
+import ru.webanimal.test46podlodkacrewlinttest.R
+import ru.webanimal.test46podlodkacrewlinttest.di.DaggerFirstScreenComponent
+import ru.webanimal.test46podlodkacrewlinttest.di.FirstScreenComponent
 import javax.inject.Inject
 
 class FirstScreenFragment: MvpAppCompatFragment(), FirstScreenView {
 
-    var firstScreenComponent: FirstScreenComponent? = null
+    private var firstScreenComponent: FirstScreenComponent? = null
         get() {
             if (field == null) {
                 field = DaggerFirstScreenComponent.create()
