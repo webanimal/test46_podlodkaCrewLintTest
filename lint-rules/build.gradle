@@ -1,0 +1,28 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+jar {
+    manifest {
+        attributes["Lint-Registry-v2"] = "ru.webanimal.lint.LintRegistry"
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    compileOnly("com.android.tools.lint:lint-api:$lint_version")
+    compileOnly("com.android.tools.lint:lint-checks:$lint_version")
+    compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
+
+
+    testImplementation("com.android.tools.lint:lint:$lint_version")
+    testImplementation("com.android.tools.lint:lint-tests:$lint_version")
+    testImplementation("com.android.tools:testutils:$lint_version")
+    testImplementation "io.kotest:kotest-runner-junit5:$kotest_version"
+    testImplementation "io.kotest:kotest-assertions-core:$kotest_version"
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
